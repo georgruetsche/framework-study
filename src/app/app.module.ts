@@ -77,6 +77,7 @@ import { AntStepsComponent } from './ant/ant-steps/ant-steps.component';
 import { AntDownloadComponent } from './ant/ant-download/ant-download.component';
 import {FrameworkComparisonComponent} from './material/framework-comparison/framework-comparison.component';
 import { AntCollapseComponent } from './ant/ant-collapse/ant-collapse.component';
+import { BootstrapAlertsComponent } from './bootstrap/bootstrap-alerts/bootstrap-alerts.component';
 
 
 registerLocaleData(de);
@@ -103,6 +104,7 @@ const routes: Routes = [
     {path: 'bootstrapcheckbox', component: BootstrapCheckboxComponent},
     {path: 'bootstrapprogress', component: BootstrapProgressComponent},
     {path: 'bootstrapmodal', component: BootstrapModalComponent},
+    {path: 'bootstrapalerts', component: BootstrapAlertsComponent},
     {path: 'frameworkcomparison', component: FrameworkComparisonComponent}
   ]},
 
@@ -133,6 +135,7 @@ const routes: Routes = [
     AntStepsComponent,
     AntDownloadComponent,
     AntCollapseComponent,
+    BootstrapAlertsComponent,
   ],
   imports: [
     MatCardModule,

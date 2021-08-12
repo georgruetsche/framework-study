@@ -1,0 +1,17 @@
+.mat-card {
+  width: 900px;
+  margin-left: 50px;
+}
+
+.material-icons {
+
+  font-size: 14px;
+}
+
+.green-icon {
+  color: green;
+}
+
+.red-icon {
+  color: red;
+}

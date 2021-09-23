@@ -1,0 +1,18 @@
+
+<mat-form-field style="padding-left: 50px;" appearance="fill">
+  <input matInput [matDatepicker]="picker" [matDatepickerFilter]="weekendsDatesFilter" [value]="selectedValue" placeholder="Choose a date">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker (opened)="onOpen()"></mat-datepicker>
+</mat-form-field>
+
+<div style="display: none">
+  <div class="datepicker-footer" #datepickerFooter>
+      <button mat-raised-button color="primary" (click)="today()" #todayButton>
+          Today
+      </button>
+      <button mat-raised-button (click)="done()" #doneButton>
+          Done
+      </button>
+  </div>
+</div>
+

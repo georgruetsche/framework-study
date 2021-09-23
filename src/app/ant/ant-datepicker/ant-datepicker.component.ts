@@ -8,6 +8,7 @@ import { getISOWeek } from 'date-fns';
 })
 export class AntDatepickerComponent implements OnInit {
   date = null;
+  dateFormat = 'DD/MM/YYYY';
 
   constructor() { }
 

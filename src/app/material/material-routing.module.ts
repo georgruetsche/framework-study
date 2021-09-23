@@ -9,7 +9,14 @@ import {MaterialProgressComponent} from './material-progress/material-progress.c
 import {MaterialTableComponent} from './material-table/material-table.component';
 import {MaterialComponent} from './material.component';
 import {MaterialSnackBarComponent} from './material-snack-bar/material-snack-bar.component';
-import { MaterialChipsComponent } from './material-chips/material-chips.component';
+import {MaterialChipsComponent} from './material-chips/material-chips.component';
+import {MaterialTextareaComponent} from './material-textarea/material-textarea.component';
+import {MaterialTreeComponent} from './material-tree/material-tree.component';
+import {MaterialSidebarComponent} from './material-sidebar/material-sidebar.component';
+import {MaterialPanelComponent} from './material-panel/material-panel.component';
+import {MaterialMultiselectComponent} from './material-multiselect/material-multiselect.component';
+import {MaterialNavsidebarComponent} from './material-navsidebar/material-navsidebar.component';
+import {MaterialFormComponent} from './material-form/material-form.component';
 
 
 const routes: Routes = [
@@ -24,7 +31,13 @@ const routes: Routes = [
     {path: 'materialcheckbox', component: MaterialCheckboxComponent},
     {path: 'materialmodal', component: MaterialModalComponent},
     {path: 'materialchips', component: MaterialChipsComponent},
-    {path: 'frameworkcomparison', component: FrameworkComparisonComponent}
+    {path: 'frameworkcomparison', component: FrameworkComparisonComponent},
+    {path: 'materialtextarea', component: MaterialTextareaComponent},
+    {path: 'materialtree', component: MaterialTreeComponent},
+    {path: 'materialpanel', component: MaterialPanelComponent},
+    {path: 'materialmultiselect', component: MaterialMultiselectComponent},
+    {path: 'materialnavsidebar', component: MaterialNavsidebarComponent},
+    {path: 'materialform', component: MaterialFormComponent}
   ];
 
 @NgModule({

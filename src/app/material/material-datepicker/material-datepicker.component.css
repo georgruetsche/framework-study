@@ -1,3 +1,11 @@
 mat-form-field {
   padding-left: 50px;
 }
+
+.datepicker-footer {
+  width: 100%;
+  padding: 0 1.125rem 1.125rem 1.125rem;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+}

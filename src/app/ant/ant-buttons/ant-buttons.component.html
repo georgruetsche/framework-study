@@ -31,4 +31,23 @@
   <i nz-icon nzType="download"></i>
   Download
 </button>
+<button nz-button nzType="primary" [nzSize]="size" (click)="showModal()">
+  Speichern
+</button>
+<nz-modal [(nzVisible)]="isVisible" nzTitle="The first Modal" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+  <ng-container *nzModalContent>
+    <p>Wollen Sie wirklich Speichern?</p>
+  </ng-container>
+</nz-modal>
+</div>
+<br>
+<div class="example-input">
+  <input
+    placeholder='try to type "b"'
+    nz-input
+    [(ngModel)]="inputValue"
+    (ngModelChange)="onChange($event)"
+    [nzAutocomplete]="auto"
+  />
+  <nz-autocomplete [nzDataSource]="filteredOptions" #auto></nz-autocomplete>
 </div>

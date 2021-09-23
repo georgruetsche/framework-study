@@ -44,3 +44,12 @@ section {
   padding-left: 50px;
 }
 
+.mat-selected {
+  background: darkblue !important;
+  color: lightgray !important;
+}
+
+.mat-selecte-default {
+  background: darkblue !important;
+  color: lightgray !important;
+}

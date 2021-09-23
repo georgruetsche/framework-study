@@ -1,0 +1,19 @@
+<app-material-navigation></app-material-navigation>
+<br>
+<div class="container">
+  <br>
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Topping" #input  >
+  </mat-form-field>
+  <br>
+  <div>
+  <mat-form-field appearance="fill">
+    <mat-label>Toppings</mat-label>
+    <mat-select [formControl]="toppings" multiple>
+      <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+  <button mat-raised-button (click)="addNewTopping(input.value)"> Add New Topping</button>
+</div>

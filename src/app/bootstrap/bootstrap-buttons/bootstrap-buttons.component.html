@@ -11,4 +11,31 @@
 <button type="button" class="btn btn-dark">Dark</button>&nbsp;
 
 <button type="button" class="btn btn-link">Link</button>&nbsp;
+<div>
+  <br>
+</div>
+<button type="button" class="btn btn-primary" (click)="openModal(template)">Speichern </button>
+<div></div>
+<br>
+<label for="typeahead-basic">Search for a state:</label>
+<input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search"/>
+<pre>Model: {{ model | json }}</pre>
+
+
+<!-- Modal -->
+<ng-template #template>
+  <div class="modal-header">
+     <h4 class="modal-title pull-left">Speichern</h4>
+     <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">×</span>
+     </button>
+  </div>
+  <div class="modal-body">
+     Wollen Sie wirklich speichern?
+  </div>
+  <div class="modal-footer">
+     <button type="button" class="btn btn-default" (click)="showFailure()">Nein</button>
+     <button type="button" class="btn btn-default" (click)="showSuccess()">Ja</button>
+  </div>
+</ng-template>
 </div>

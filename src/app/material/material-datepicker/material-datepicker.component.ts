@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { MatDatepicker } from "@angular/material/datepicker";
 
 @Component({
   selector: 'app-material-datepicker',
@@ -11,5 +12,7 @@ export class MaterialDatepickerComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  selectedValue : Date | null = null;
 
 }

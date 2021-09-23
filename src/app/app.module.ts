@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { de_DE } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
@@ -39,6 +38,12 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { NzCollapseModule } from 'ng-zorro-antd/collapse';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzTreeModule } from 'ng-zorro-antd/tree';
+import { NzTreeViewModule } from 'ng-zorro-antd/tree-view';
+import { NzTreeSelectModule } from 'ng-zorro-antd/tree-select';
+import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzAutocompleteModule } from 'ng-zorro-antd/auto-complete';
 import { AntCheckboxComponent } from './ant/ant-checkbox/ant-checkbox.component';
 import { BootstrapNavigationComponent } from './bootstrap/bootstrap-navigation/bootstrap-navigation.component';
 import { BootstrapDatepickerComponent } from './bootstrap/bootstrap-datepicker/bootstrap-datepicker.component';
@@ -49,7 +54,9 @@ import { BootstrapTableComponent } from './bootstrap/bootstrap-table/bootstrap-t
 import { BootstrapCheckboxComponent } from './bootstrap/bootstrap-checkbox/bootstrap-checkbox.component';
 import { BootstrapProgressComponent } from './bootstrap/bootstrap-progress/bootstrap-progress.component';
 import { BootstrapModalComponent } from './bootstrap/bootstrap-modal/bootstrap-modal.component';
+import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
 import { AntModalComponent } from './ant/ant-modal/ant-modal.component';
+
 
 
 import { MaterialRoutingModule} from './material/material-routing.module'
@@ -63,6 +70,7 @@ import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatSelectModule} from '@angular/material/select';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -72,13 +80,25 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatChipsModule} from '@angular/material/chips';
 import { AntStepsComponent } from './ant/ant-steps/ant-steps.component';
 import { AntDownloadComponent } from './ant/ant-download/ant-download.component';
 import {FrameworkComparisonComponent} from './material/framework-comparison/framework-comparison.component';
 import { AntCollapseComponent } from './ant/ant-collapse/ant-collapse.component';
 import { BootstrapAlertsComponent } from './bootstrap/bootstrap-alerts/bootstrap-alerts.component';
+import { AntTextareaComponent } from './ant/ant-textarea/ant-textarea.component';
+import { BootstrapTextareaComponent } from './bootstrap/bootstrap-textarea/bootstrap-textarea.component';
 
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AntTreestateComponent } from './ant/ant-treestate/ant-treestate.component';
+import { AntTreeComponent } from './ant/ant-tree/ant-tree.component';
+import {BootstrapPanelComponent} from './bootstrap/bootstrap-panel/bootstrap-panel.component';
+
+import { MAT_DATE_FORMATS } from '@angular/material/core';
+
+import { MY_DATE_FORMATS } from './my-date-formats';
 
 registerLocaleData(de);
 
@@ -95,6 +115,9 @@ const routes: Routes = [
     {path: 'antstep', component: AntStepsComponent},
     {path: 'antdownload', component: AntDownloadComponent},
     {path: 'antcollapse', component: AntCollapseComponent},
+    {path: 'anttextarea', component: AntTextareaComponent},
+    {path: 'anttree', component: AntTreeComponent},
+    {path: 'anttreestate', component: AntTreestateComponent},
     {path: 'frameworkcomparison', component: FrameworkComparisonComponent}
   ]},
   {path: 'bootstrap', component: BootstrapComponent, children: [
@@ -105,6 +128,8 @@ const routes: Routes = [
     {path: 'bootstrapprogress', component: BootstrapProgressComponent},
     {path: 'bootstrapmodal', component: BootstrapModalComponent},
     {path: 'bootstrapalerts', component: BootstrapAlertsComponent},
+    {path: 'bootstraptextarea', component: BootstrapTextareaComponent},
+    {path: 'bootstrappanel', component: BootstrapPanelComponent},
     {path: 'frameworkcomparison', component: FrameworkComparisonComponent}
   ]},
 
@@ -136,12 +161,15 @@ const routes: Routes = [
     AntDownloadComponent,
     AntCollapseComponent,
     BootstrapAlertsComponent,
+    AntTextareaComponent,
+    BootstrapTextareaComponent,
+    AntTreestateComponent,
+    AntTreeComponent,
   ],
   imports: [
     MatCardModule,
     MatDividerModule,
     MatIconModule,
-    MatButtonModule,
     MatTabsModule,
     MatRadioModule,
     MatButtonToggleModule,
@@ -149,9 +177,12 @@ const routes: Routes = [
     MatProgressSpinnerModule,
     MatProgressBarModule,
     MatTableModule,
+    MatSelectModule,
     MatPaginatorModule,
     MatSnackBarModule,
     MatChipsModule,
+    MatButtonModule,
+    MatAutocompleteModule,
     BrowserModule,
     MatDatepickerModule,
     BrowserAnimationsModule,
@@ -164,22 +195,31 @@ const routes: Routes = [
     NzDatePickerModule,
     NzProgressModule,
     NzSpinModule,
+    NzTreeModule,
+    NzTreeViewModule,
+    NzTreeSelectModule,
     NzIconModule,
     NzTableModule,
     NzDividerModule,
+    NzCardModule,
     NzCheckboxModule,
     NzMessageModule ,
     NzModalModule,
     NzStepsModule,
     NzUploadModule,
     NzCollapseModule,
+    NzInputModule,
+    NzAutocompleteModule,
     BsDatepickerModule,
     NgbModule,
     NgbDatepickerModule,
     MatDialogModule,
     MatInputModule,
     MaterialRoutingModule,
-    RouterModule.forRoot(routes)
+    ModalModule,
+    RouterModule.forRoot(routes),
+    ToastrModule.forRoot()
+
   ],
   exports: [
     MatCardModule,
@@ -197,23 +237,31 @@ const routes: Routes = [
     MatNativeDateModule,
     MatPaginatorModule,
     MatCheckboxModule,
+    MatAutocompleteModule,
     NzDatePickerModule,
     NzProgressModule,
     NzSpinModule,
     NzModalModule,
     NzTableModule,
+    NzTreeModule,
+    MatSelectModule,
+    NzTreeViewModule,
+    NzTreeSelectModule,
     NzMessageModule,
     NzIconModule,
+    NzCardModule,
     NzCollapseModule,
     NzDividerModule,
     NzCheckboxModule,
+    NzInputModule,
+    NzAutocompleteModule,
     BsDatepickerModule,
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
     NgbModule,
   ],
-  providers: [{ provide: NZ_I18N, useValue: de_DE }, {provide: MAT_DATE_LOCALE, useValue: 'en-GB'}],
+  providers: [{ provide: NZ_I18N, useValue: de_DE }, {provide: MAT_DATE_LOCALE, useValue: 'en-GB'} ,BsModalService, { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

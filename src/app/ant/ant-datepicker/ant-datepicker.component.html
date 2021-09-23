@@ -1,7 +1,7 @@
 
 <br>
 <div class="container">
-<nz-range-picker [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-range-picker>
+<nz-range-picker nzShowToday="true" nzFormat="dd.MM.YYYY" [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-range-picker>
 <br />
 <nz-range-picker nzMode="week" [(ngModel)]="date" (ngModelChange)="getWeek($event)"></nz-range-picker>
 <br />

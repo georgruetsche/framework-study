@@ -148,4 +148,26 @@
     </div>
   </div>
 </section>
+<button mat-raised-button (click)="openDialog()">Speichern</button>
+<div></div>
+<br>
+<form class="example-form">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Text</mat-label>
+    <input type="text"
+           placeholder="Pick one"
+           aria-label="Text"
+           matInput
+           [formControl]="myControl"
+           [matAutocomplete]="auto">
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async " [value]="option" [ngClass]="(myControl.value === option)?'mat-selecte-default':''">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+
+
+
 </div>

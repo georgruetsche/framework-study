@@ -1,3 +1,9 @@
 nav {
   padding-left: 50px
 }
+
+
+#ngb-live {
+  display: none;
+}
+
